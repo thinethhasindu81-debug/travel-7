@@ -1,0 +1,1193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Thinu Cabs & Tours - Professional transport and tourism company in Sri Lanka. Airport transfers, private taxi service, round tours, day tours, luxury vehicles.">
+  <meta name="keywords" content="Sri Lanka taxi, airport transfer Sri Lanka, Sri Lanka tours, private driver Sri Lanka, Thinu Cabs, Sri Lanka travel">
+  <meta name="author" content="Thinu Cabs & Tours">
+  <meta property="og:title" content="Thinu Cabs & Tours - Explore Sri Lanka with Comfort & Confidence">
+  <meta property="og:description" content="Professional transport and tourism company in Sri Lanka. Airport transfers, private taxi, round tours, luxury vehicles.">
+  <meta property="og:type" content="website">
+  <title>Thinu Cabs & Tours | Explore Sri Lanka with Comfort & Confidence</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'db': '#0a1628',
+            'db2': '#0f1e36',
+            'db3': '#162a4a',
+            'gd': '#c8a951',
+            'gdl': '#e2cc7e',
+            'gdd': '#a08030',
+          },
+          fontFamily: {
+            'play': ['Playfair Display', 'serif'],
+            'inter': ['Inter', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background: #fff; color: #333; overflow-x: hidden; }
+    .font-play { font-family: 'Playfair Display', serif; }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #0a1628; }
+    ::-webkit-scrollbar-thumb { background: #c8a951; border-radius: 4px; }
+
+    /* Hero Slider */
+    .hero-slide { position: absolute; inset: 0; opacity: 0; transition: opacity 1.5s ease-in-out; }
+    .hero-slide.active { opacity: 1; }
+    .hero-slide img { width: 100%; height: 100%; object-fit: cover; }
+
+    /* Animations */
+    .fade-up { opacity: 0; transform: translateY(40px); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+    .fade-left { opacity: 0; transform: translateX(-40px); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+    .fade-left.visible { opacity: 1; transform: translateX(0); }
+    .fade-right { opacity: 0; transform: translateX(40px); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+    .fade-right.visible { opacity: 1; transform: translateX(0); }
+    .scale-in { opacity: 0; transform: scale(0.9); transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1); }
+    .scale-in.visible { opacity: 1; transform: scale(1); }
+
+    /* Gold gradient text */
+    .gold-text { background: linear-gradient(135deg, #e2cc7e, #c8a951, #a08030); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+
+    /* Card hover */
+    .service-card { transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+    .service-card:hover { transform: translateY(-8px); box-shadow: 0 20px 60px rgba(10, 22, 40, 0.15); border-color: #c8a951; }
+
+    .dest-card { transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1); }
+    .dest-card:hover { transform: translateY(-6px); }
+    .dest-card:hover img { transform: scale(1.1); }
+    .dest-card img { transition: transform 0.7s ease; }
+
+    .vehicle-card { transition: all 0.4s ease; }
+    .vehicle-card:hover { transform: translateY(-6px); box-shadow: 0 15px 40px rgba(10, 22, 40, 0.12); }
+
+    /* Gallery */
+    .gallery-item { overflow: hidden; border-radius: 12px; cursor: pointer; position: relative; }
+    .gallery-item img { transition: transform 0.6s ease; width: 100%; height: 100%; object-fit: cover; }
+    .gallery-item:hover img { transform: scale(1.1); }
+    .gallery-item::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(10,22,40,0.5), transparent); opacity: 0; transition: opacity 0.4s; }
+    .gallery-item:hover::after { opacity: 1; }
+    .gallery-item .gallery-icon { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(0); z-index: 2; transition: transform 0.4s ease; color: white; font-size: 1.5rem; }
+    .gallery-item:hover .gallery-icon { transform: translate(-50%, -50%) scale(1); }
+
+    /* Lightbox */
+    .lightbox { position: fixed; inset: 0; background: rgba(0,0,0,0.95); z-index: 9999; display: none; align-items: center; justify-content: center; }
+    .lightbox.open { display: flex; }
+    .lightbox img { max-width: 90vw; max-height: 85vh; object-fit: contain; border-radius: 8px; }
+
+    /* Nav scroll */
+    .nav-scrolled { background: rgba(10, 22, 40, 0.97) !important; backdrop-filter: blur(20px); box-shadow: 0 4px 30px rgba(0,0,0,0.3); }
+
+    /* Floating buttons */
+    .float-wa { position: fixed; bottom: 24px; right: 24px; z-index: 9998; width: 60px; height: 60px; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 28px; box-shadow: 0 6px 30px rgba(37, 211, 102, 0.4); transition: all 0.3s; animation: waPulse 2s infinite; }
+    .float-wa:hover { transform: scale(1.1); box-shadow: 0 8px 40px rgba(37, 211, 102, 0.6); }
+    @keyframes waPulse { 0%, 100% { box-shadow: 0 6px 30px rgba(37,211,102,0.4); } 50% { box-shadow: 0 6px 30px rgba(37,211,102,0.7), 0 0 0 12px rgba(37,211,102,0.1); } }
+
+    .float-call { position: fixed; bottom: 96px; right: 24px; z-index: 9998; width: 60px; height: 60px; background: #0f1e36; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #c8a951; font-size: 24px; box-shadow: 0 6px 30px rgba(10,22,40,0.4); transition: all 0.3s; border: 2px solid #c8a951; }
+    .float-call:hover { transform: scale(1.1); background: #c8a951; color: #0a1628; }
+
+    .back-top { position: fixed; bottom: 168px; right: 24px; z-index: 9998; width: 48px; height: 48px; background: rgba(10,22,40,0.9); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #c8a951; font-size: 18px; transition: all 0.3s; opacity: 0; pointer-events: none; border: 1px solid rgba(200,169,81,0.3); }
+    .back-top.show { opacity: 1; pointer-events: all; }
+    .back-top:hover { background: #c8a951; color: #0a1628; }
+
+    /* Section divider */
+    .section-line { width: 60px; height: 3px; background: linear-gradient(90deg, #c8a951, #e2cc7e); border-radius: 2px; }
+
+    /* Review card */
+    .review-card { transition: all 0.3s ease; }
+    .review-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(10,22,40,0.1); }
+
+    /* Mobile menu */
+    .mobile-menu { transform: translateX(100%); transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+    .mobile-menu.open { transform: translateX(0); }
+
+    /* Form inputs */
+    .form-input { transition: all 0.3s ease; }
+    .form-input:focus { border-color: #c8a951; box-shadow: 0 0 0 3px rgba(200,169,81,0.15); }
+
+    /* Shimmer for hero */
+    .hero-overlay { background: linear-gradient(135deg, rgba(10,22,40,0.85) 0%, rgba(15,30,54,0.7) 50%, rgba(10,22,40,0.85) 100%); }
+
+    /* Destination grid masonry feel */
+    .dest-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 24px; }
+    @media(min-width: 768px) { .dest-grid { grid-template-columns: repeat(3, 1fr); } }
+    @media(min-width: 1024px) { .dest-grid { grid-template-columns: repeat(4, 1fr); } }
+
+    /* Gallery grid */
+    .gallery-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    @media(min-width: 768px) { .gallery-grid { grid-template-columns: repeat(3, 1fr); gap: 20px; } }
+    @media(min-width: 1024px) { .gallery-grid { grid-template-columns: repeat(4, 1fr); gap: 20px; } }
+    .gallery-grid .tall { grid-row: span 2; }
+
+    /* Slider dots */
+    .slider-dot { width: 12px; height: 12px; border-radius: 50%; border: 2px solid #c8a951; background: transparent; transition: all 0.3s; cursor: pointer; }
+    .slider-dot.active { background: #c8a951; }
+
+    /* Hamburger */
+    .hamburger span { display: block; width: 24px; height: 2px; background: #c8a951; transition: all 0.3s; border-radius: 2px; }
+    .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+    .hamburger.active span:nth-child(2) { opacity: 0; }
+    .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+    @media(max-width: 768px) {
+      .dest-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+    }
+    @media(max-width: 480px) {
+      .dest-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav id="navbar" class="fixed top-0 left-0 right-0 z-[999] transition-all duration-500" style="background: transparent;">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        <a href="#home" class="flex items-center gap-3">
+          <img src="https://z-cdn-media.chatglm.cn/files/2b9bd311-19b8-4ebc-b642-3baa51db7815.jpg?auth_key=1883238630-0e41a32299094ee787c81da57dceacc8-0-0e85d978e5d3926cd0a991188c0df9df" alt="Thinu Cabs & Tours Logo" class="h-12 w-12 rounded-full object-cover border-2 border-gd/50">
+          <div>
+            <span class="font-play text-white text-lg font-bold leading-tight block">Thinu Cabs</span>
+            <span class="text-gdl text-[10px] tracking-[0.2em] uppercase">& Tours</span>
+          </div>
+        </a>
+        <div class="hidden lg:flex items-center gap-8">
+          <a href="#home" class="text-white/80 hover:text-gd text-sm font-medium transition-colors">Home</a>
+          <a href="#about" class="text-white/80 hover:text-gd text-sm font-medium transition-colors">About</a>
+          <a href="#services" class="text-white/80 hover:text-gd text-sm font-medium transition-colors">Services</a>
+          <a href="#destinations" class="text-white/80 hover:text-gd text-sm font-medium transition-colors">Tours</a>
+          <a href="#fleet" class="text-white/80 hover:text-gd text-sm font-medium transition-colors">Fleet</a>
+          <a href="#gallery" class="text-white/80 hover:text-gd text-sm font-medium transition-colors">Gallery</a>
+          <a href="#contact" class="text-white/80 hover:text-gd text-sm font-medium transition-colors">Contact</a>
+          <a href="https://wa.me/94765262359" target="_blank" class="bg-gd hover:bg-gdd text-db font-semibold text-sm px-6 py-2.5 rounded-full transition-all hover:shadow-lg hover:shadow-gd/20">Book Now</a>
+        </div>
+        <button id="menuBtn" class="hamburger lg:hidden flex flex-col gap-1.5 p-2" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div id="mobileMenu" class="mobile-menu fixed top-0 right-0 bottom-0 w-80 max-w-[85vw] bg-db z-[1000] p-8 pt-24 overflow-y-auto">
+    <button id="closeMenu" class="absolute top-6 right-6 text-gd text-2xl"><i class="fas fa-times"></i></button>
+    <div class="flex flex-col gap-6">
+      <a href="#home" class="mobile-link text-white text-lg font-medium hover:text-gd transition-colors">Home</a>
+      <a href="#about" class="mobile-link text-white text-lg font-medium hover:text-gd transition-colors">About</a>
+      <a href="#services" class="mobile-link text-white text-lg font-medium hover:text-gd transition-colors">Services</a>
+      <a href="#destinations" class="mobile-link text-white text-lg font-medium hover:text-gd transition-colors">Tours</a>
+      <a href="#fleet" class="mobile-link text-white text-lg font-medium hover:text-gd transition-colors">Fleet</a>
+      <a href="#gallery" class="mobile-link text-white text-lg font-medium hover:text-gd transition-colors">Gallery</a>
+      <a href="#contact" class="mobile-link text-white text-lg font-medium hover:text-gd transition-colors">Contact</a>
+      <hr class="border-white/10">
+      <a href="https://wa.me/94765262359" target="_blank" class="bg-gd text-db font-semibold text-center py-3 rounded-full hover:bg-gdd transition-colors">Book on WhatsApp</a>
+      <a href="tel:+94765262359" class="border border-gd text-gd font-semibold text-center py-3 rounded-full hover:bg-gd hover:text-db transition-all">Call Now</a>
+    </div>
+  </div>
+  <div id="menuOverlay" class="fixed inset-0 bg-black/60 z-[999] hidden"></div>
+
+  <!-- Hero Section -->
+  <section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <div class="absolute inset-0">
+      <div class="hero-slide active">
+        <img src="https://picsum.photos/seed/srilanka-temple/1920/1080.jpg" alt="Sri Lanka scenic view">
+      </div>
+      <div class="hero-slide">
+        <img src="https://picsum.photos/seed/srilanka-beach-palm/1920/1080.jpg" alt="Sri Lanka beach">
+      </div>
+      <div class="hero-slide">
+        <img src="https://picsum.photos/seed/srilanka-tea-plant/1920/1080.jpg" alt="Sri Lanka tea plantations">
+      </div>
+      <div class="hero-slide">
+        <img src="https://picsum.photos/seed/srilanka-sigiriya-rock/1920/1080.jpg" alt="Sigiriya Sri Lanka">
+      </div>
+    </div>
+    <div class="hero-overlay absolute inset-0"></div>
+    <div class="relative z-10 text-center px-4 max-w-5xl mx-auto">
+      <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-5 py-2 mb-8">
+        <i class="fas fa-star text-gd text-xs"></i>
+        <span class="text-white/90 text-sm font-medium">Trusted by thousands of travelers worldwide</span>
+      </div>
+      <h1 class="font-play text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.1] mb-6">
+        Explore Sri Lanka with<br><span class="gold-text">Comfort & Confidence</span>
+      </h1>
+      <p class="text-white/80 text-base sm:text-lg md:text-xl max-w-3xl mx-auto mb-10 font-light leading-relaxed">
+        Airport Transfers &nbsp;|&nbsp; Private Taxi Service &nbsp;|&nbsp; Round Tours &nbsp;|&nbsp; Day Tours &nbsp;|&nbsp; Luxury Vehicles
+      </p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="https://wa.me/94765262359" target="_blank" class="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-[#25D366] hover:bg-[#20bd5a] text-white font-semibold text-base px-8 py-4 rounded-full transition-all hover:shadow-xl hover:shadow-[#25D366]/20 hover:-translate-y-0.5">
+          <i class="fab fa-whatsapp text-xl"></i> Book on WhatsApp
+        </a>
+        <a href="#destinations" class="w-full sm:w-auto inline-flex items-center justify-center gap-3 border-2 border-gd text-gd hover:bg-gd hover:text-db font-semibold text-base px-8 py-4 rounded-full transition-all hover:-translate-y-0.5">
+          Explore Tours <i class="fas fa-arrow-right text-sm"></i>
+        </a>
+      </div>
+      <!-- Slider Dots -->
+      <div class="flex items-center justify-center gap-3 mt-12">
+        <button class="slider-dot active" data-slide="0"></button>
+        <button class="slider-dot" data-slide="1"></button>
+        <button class="slider-dot" data-slide="2"></button>
+        <button class="slider-dot" data-slide="3"></button>
+      </div>
+    </div>
+    <!-- Scroll indicator -->
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2">
+      <span class="text-white/50 text-xs tracking-widest uppercase">Scroll</span>
+      <div class="w-[1px] h-8 bg-gradient-to-b from-gd to-transparent"></div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="py-20 md:py-28 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+        <div class="fade-left">
+          <div class="relative">
+            <img src="https://picsum.photos/seed/srilanka-driver-car/700/500.jpg" alt="Thinu Cabs professional driver" class="rounded-2xl shadow-2xl w-full object-cover h-[400px] md:h-[500px]">
+            <div class="absolute -bottom-6 -right-6 bg-db text-white p-6 rounded-2xl shadow-xl hidden md:block">
+              <div class="text-3xl font-bold font-play gold-text">10+</div>
+              <div class="text-white/70 text-sm">Years of Excellence</div>
+            </div>
+            <div class="absolute -top-4 -left-4 w-24 h-24 border-2 border-gd/30 rounded-2xl hidden md:block"></div>
+          </div>
+        </div>
+        <div class="fade-right">
+          <span class="text-gd font-semibold text-sm tracking-[0.2em] uppercase">About Us</span>
+          <div class="section-line mt-3 mb-6"></div>
+          <h2 class="font-play text-3xl md:text-4xl lg:text-5xl font-bold text-db leading-tight mb-6">
+            Welcome to <span class="gold-text">Thinu Cabs & Tours</span>
+          </h2>
+          <p class="text-gray-600 leading-relaxed mb-6">
+            We specialize in providing reliable taxi services and unforgettable tours throughout Sri Lanka. Whether you're arriving at the airport, planning a holiday, or exploring Sri Lanka's beautiful destinations, we provide comfortable vehicles and experienced drivers to make your journey safe and enjoyable.
+          </p>
+          <p class="text-gray-600 leading-relaxed mb-8">
+            Our mission is to deliver excellent customer service, affordable prices, and memorable travel experiences. From the moment you land in Sri Lanka until your departure, we take care of every journey with professionalism and care.
+          </p>
+          <div class="grid grid-cols-2 gap-4 mb-8">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 bg-gd/10 rounded-lg flex items-center justify-center flex-shrink-0"><i class="fas fa-shield-halved text-gd text-sm"></i></div>
+              <span class="text-db font-medium text-sm">Licensed & Insured</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 bg-gd/10 rounded-lg flex items-center justify-center flex-shrink-0"><i class="fas fa-clock text-gd text-sm"></i></div>
+              <span class="text-db font-medium text-sm">24/7 Available</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 bg-gd/10 rounded-lg flex items-center justify-center flex-shrink-0"><i class="fas fa-globe text-gd text-sm"></i></div>
+              <span class="text-db font-medium text-sm">Island Wide</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 bg-gd/10 rounded-lg flex items-center justify-center flex-shrink-0"><i class="fas fa-users text-gd text-sm"></i></div>
+              <span class="text-db font-medium text-sm">5000+ Happy Clients</span>
+            </div>
+          </div>
+          <a href="https://wa.me/94765262359" target="_blank" class="inline-flex items-center gap-2 bg-db hover:bg-db2 text-gd font-semibold px-8 py-3.5 rounded-full transition-all hover:shadow-lg">
+            Get in Touch <i class="fas fa-arrow-right text-sm"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="py-20 md:py-28 bg-gradient-to-b from-[#f8f6f0] to-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16 fade-up">
+        <span class="text-gd font-semibold text-sm tracking-[0.2em] uppercase">What We Offer</span>
+        <div class="section-line mx-auto mt-3 mb-6"></div>
+        <h2 class="font-play text-3xl md:text-4xl lg:text-5xl font-bold text-db">Our Services</h2>
+        <p class="text-gray-500 mt-4 max-w-2xl mx-auto">Comprehensive transportation and tourism services tailored for your Sri Lankan adventure</p>
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
+        <!-- Service Cards -->
+        <div class="service-card bg-white rounded-xl p-6 border border-gray-100 text-center scale-in" style="transition-delay:0ms">
+          <div class="w-14 h-14 bg-db rounded-xl flex items-center justify-center mx-auto mb-4"><i class="fas fa-plane-arrival text-gd text-xl"></i></div>
+          <h3 class="font-semibold text-db text-sm mb-1">Airport Pickup</h3>
+          <p class="text-gray-400 text-xs">Meet & greet service</p>
+        </div>
+        <div class="service-card bg-white rounded-xl p-6 border border-gray-100 text-center scale-in" style="transition-delay:50ms">
+          <div class="w-14 h-14 bg-db rounded-xl flex items-center justify-center mx-auto mb-4"><i class="fas fa-plane-departure text-gd text-xl"></i></div>
+          <h3 class="font-semibold text-db text-sm mb-1">Airport Drop</h3>
+          <p class="text-gray-400 text-xs">Hassle-free departure</p>
+        </div>
+        <div class="service-card bg-white rounded-xl p-6 border border-gray-100 text-center scale-in" style="transition-delay:100ms">
+          <div class="w-14 h-14 bg-db rounded-xl flex items-center justify-center mx-auto mb-4"><i class="fas fa-taxi text-gd text-xl"></i></div>
+          <h3 class="font-semibold text-db text-sm mb-1">Private Taxi Service</h3>
+          <p class="text-gray-400 text-xs">Point to point travel</p>
+        </div>
+        <div class="service-card bg-white rounded-xl p-6 border border-gray-100 text-center scale-in" style="transition-delay:150ms">
+          <div class="w-14 h-14 bg-db rounded-xl flex items-center justify-center mx-auto mb-4"><i class="fas fa-city text-gd text-xl"></i></div>
+          <h3 class="font-semibold text-db text-sm mb-1">City Tours</h3>
+          <p class="text-gray-400 text-xs">Explore urban gems</p>
+        </div>
+        <div class="service-card bg-white rounded-xl p-6 border border-gray-100 text-center scale-in" style="transition-delay:200ms">
+          <div class="w-14 h-14 bg-db rounded-xl flex items-center justify-center mx-auto mb-4"><i class="fas fa-route text-gd text-xl"></i></div>
+          <h3 class="font-semibold text-db text-sm mb-1">Round Tours</h3>
+          <p class="text-gray-400 text-xs">Complete island tours</p>
+        </div>
+        <div class="service-card bg-white rounded-xl p-6 border border-gray-100 text-center scale-in" style="transition-delay:250ms">
+          <div class="w-14 h-14 bg-db rounded-xl flex items-center justify-center mx-auto mb-4"><i class="fas fa-sun text-gd text-xl"></i></div>
+          <h3 class="font-semibold text-db text-sm mb-1">Day Excursions</h3>
+          <p class="text-gray-400 text-xs">Single day adventures</p>
+        </div>
+        <div class="service-card bg-white rounded-xl p-6 border border-gray-100 text-center scale-in" style="transition-delay:300ms">
+          <div class="w-14 h-14 bg-db rounded-xl flex items-center justify-center mx-auto mb-4"><i class="fas fa-hotel text-gd text-xl"></i></div>
+          <h3 class="font-semibold text-db text-sm mb-1">Hotel Transfers</h3>
+          <p class="text-gray-400 text-xs">Comfortable hotel rides</p>
+        </div>
+        <div class="service-card bg-white rounded-xl p-6 border border-gray-100 text-center scale-in" style="transition-delay:350ms">
+          <div class="w-14 h-14 bg-db rounded-xl flex items-center justify-center mx-auto mb-4"><i class="fas fa-gem text-gd text-xl"></i></div>
+          <h3 class="font-semibold text-db text-sm mb-1">Luxury Vehicle Hire</h3>
+          <p class="text-gray-400 text-xs">Premium travel experience</p>
+        </div>
+        <div class="service-card bg-white rounded-xl p-6 border border-gray-100 text-center scale-in" style="transition-delay:400ms">
+          <div class="w-14 h-14 bg-db rounded-xl flex items-center justify-center mx-auto mb-4"><i class="fas fa-people-group text-gd text-xl"></i></div>
+          <h3 class="font-semibold text-db text-sm mb-1">Family Tours</h3>
+          <p class="text-gray-400 text-xs">Kid-friendly journeys</p>
+        </div>
+        <div class="service-card bg-white rounded-xl p-6 border border-gray-100 text-center scale-in" style="transition-delay:450ms">
+          <div class="w-14 h-14 bg-db rounded-xl flex items-center justify-center mx-auto mb-4"><i class="fas fa-heart text-gd text-xl"></i></div>
+          <h3 class="font-semibold text-db text-sm mb-1">Honeymoon Tours</h3>
+          <p class="text-gray-400 text-xs">Romantic getaways</p>
+        </div>
+        <div class="service-card bg-white rounded-xl p-6 border border-gray-100 text-center scale-in" style="transition-delay:500ms">
+          <div class="w-14 h-14 bg-db rounded-xl flex items-center justify-center mx-auto mb-4"><i class="fas fa-briefcase text-gd text-xl"></i></div>
+          <h3 class="font-semibold text-db text-sm mb-1">Business Transport</h3>
+          <p class="text-gray-400 text-xs">Corporate travel solutions</p>
+        </div>
+        <div class="service-card bg-white rounded-xl p-6 border border-gray-100 text-center scale-in" style="transition-delay:550ms">
+          <div class="w-14 h-14 bg-db rounded-xl flex items-center justify-center mx-auto mb-4"><i class="fas fa-puzzle-piece text-gd text-xl"></i></div>
+          <h3 class="font-semibold text-db text-sm mb-1">Custom Tour Packages</h3>
+          <p class="text-gray-400 text-xs">Tailored to your needs</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Popular Destinations -->
+  <section id="destinations" class="py-20 md:py-28 bg-db">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16 fade-up">
+        <span class="text-gd font-semibold text-sm tracking-[0.2em] uppercase">Discover Paradise</span>
+        <div class="section-line mx-auto mt-3 mb-6"></div>
+        <h2 class="font-play text-3xl md:text-4xl lg:text-5xl font-bold text-white">Popular Destinations</h2>
+        <p class="text-white/50 mt-4 max-w-2xl mx-auto">Explore the most beautiful and iconic locations across Sri Lanka with our expert drivers</p>
+      </div>
+      <div class="dest-grid">
+        <div class="dest-card rounded-xl overflow-hidden relative group scale-in" style="transition-delay:0ms">
+          <div class="aspect-[4/5] overflow-hidden"><img src="https://picsum.photos/seed/colombo-city-skyline/500/625.jpg" alt="Colombo" class="w-full h-full object-cover"></div>
+          <div class="absolute inset-0 bg-gradient-to-t from-db via-db/30 to-transparent"></div>
+          <div class="absolute bottom-0 left-0 right-0 p-5">
+            <h3 class="font-play text-xl font-bold text-white mb-1">Colombo</h3>
+            <p class="text-white/60 text-xs leading-relaxed">Vibrant capital city with colonial architecture, modern malls, and delicious street food.</p>
+          </div>
+        </div>
+        <div class="dest-card rounded-xl overflow-hidden relative group scale-in" style="transition-delay:50ms">
+          <div class="aspect-[4/5] overflow-hidden"><img src="https://picsum.photos/seed/kandy-temple-lake/500/625.jpg" alt="Kandy" class="w-full h-full object-cover"></div>
+          <div class="absolute inset-0 bg-gradient-to-t from-db via-db/30 to-transparent"></div>
+          <div class="absolute bottom-0 left-0 right-0 p-5">
+            <h3 class="font-play text-xl font-bold text-white mb-1">Kandy</h3>
+            <p class="text-white/60 text-xs leading-relaxed">Home to the Sacred Temple of the Tooth and beautiful Kandy Lake.</p>
+          </div>
+        </div>
+        <div class="dest-card rounded-xl overflow-hidden relative group scale-in" style="transition-delay:100ms">
+          <div class="aspect-[4/5] overflow-hidden"><img src="https://picsum.photos/seed/nuwara-eliya-tea/500/625.jpg" alt="Nuwara Eliya" class="w-full h-full object-cover"></div>
+          <div class="absolute inset-0 bg-gradient-to-t from-db via-db/30 to-transparent"></div>
+          <div class="absolute bottom-0 left-0 right-0 p-5">
+            <h3 class="font-play text-xl font-bold text-white mb-1">Nuwara Eliya</h3>
+            <p class="text-white/60 text-xs leading-relaxed">Little England with lush tea plantations and cool mountain climate.</p>
+          </div>
+        </div>
+        <div class="dest-card rounded-xl overflow-hidden relative group scale-in" style="transition-delay:150ms">
+          <div class="aspect-[4/5] overflow-hidden"><img src="https://picsum.photos/seed/ella-train-bridge/500/625.jpg" alt="Ella" class="w-full h-full object-cover"></div>
+          <div class="absolute inset-0 bg-gradient-to-t from-db via-db/30 to-transparent"></div>
+          <div class="absolute bottom-0 left-0 right-0 p-5">
+            <h3 class="font-play text-xl font-bold text-white mb-1">Ella</h3>
+            <p class="text-white/60 text-xs leading-relaxed">Stunning mountain views, famous Nine Arches Bridge, and epic hiking trails.</p>
+          </div>
+        </div>
+        <div class="dest-card rounded-xl overflow-hidden relative group scale-in" style="transition-delay:200ms">
+          <div class="aspect-[4/5] overflow-hidden"><img src="https://picsum.photos/seed/sigiriya-lion-rock/500/625.jpg" alt="Sigiriya" class="w-full h-full object-cover"></div>
+          <div class="absolute inset-0 bg-gradient-to-t from-db via-db/30 to-transparent"></div>
+          <div class="absolute bottom-0 left-0 right-0 p-5">
+            <h3 class="font-play text-xl font-bold text-white mb-1">Sigiriya</h3>
+            <p class="text-white/60 text-xs leading-relaxed">Ancient rock fortress rising 200m, a UNESCO World Heritage Site.</p>
+          </div>
+        </div>
+        <div class="dest-card rounded-xl overflow-hidden relative group scale-in" style="transition-delay:250ms">
+          <div class="aspect-[4/5] overflow-hidden"><img src="https://picsum.photos/seed/dambulla-cave-temple/500/625.jpg" alt="Dambulla" class="w-full h-full object-cover"></div>
+          <div class="absolute inset-0 bg-gradient-to-t from-db via-db/30 to-transparent"></div>
+          <div class="absolute bottom-0 left-0 right-0 p-5">
+            <h3 class="font-play text-xl font-bold text-white mb-1">Dambulla</h3>
+            <p class="text-white/60 text-xs leading-relaxed">Magnificent cave temple complex with over 150 Buddha statues.</p>
+          </div>
+        </div>
+        <div class="dest-card rounded-xl overflow-hidden relative group scale-in" style="transition-delay:300ms">
+          <div class="aspect-[4/5] overflow-hidden"><img src="https://picsum.photos/seed/galle-fort-old/500/625.jpg" alt="Galle" class="w-full h-full object-cover"></div>
+          <div class="absolute inset-0 bg-gradient-to-t from-db via-db/30 to-transparent"></div>
+          <div class="absolute bottom-0 left-0 right-0 p-5">
+            <h3 class="font-play text-xl font-bold text-white mb-1">Galle</h3>
+            <p class="text-white/60 text-xs leading-relaxed">Historic Dutch fort with charming streets, boutiques, and ocean views.</p>
+          </div>
+        </div>
+        <div class="dest-card rounded-xl overflow-hidden relative group scale-in" style="transition-delay:350ms">
+          <div class="aspect-[4/5] overflow-hidden"><img src="https://picsum.photos/seed/mirissa-whale-sunset/500/625.jpg" alt="Mirissa" class="w-full h-full object-cover"></div>
+          <div class="absolute inset-0 bg-gradient-to-t from-db via-db/30 to-transparent"></div>
+          <div class="absolute bottom-0 left-0 right-0 p-5">
+            <h3 class="font-play text-xl font-bold text-white mb-1">Mirissa</h3>
+            <p class="text-white/60 text-xs leading-relaxed">Famous for whale watching, stunning beaches, and vibrant nightlife.</p>
+          </div>
+        </div>
+        <div class="dest-card rounded-xl overflow-hidden relative group scale-in" style="transition-delay:400ms">
+          <div class="aspect-[4/5] overflow-hidden"><img src="https://picsum.photos/seed/bentota-river-lagoon/500/625.jpg" alt="Bentota" class="w-full h-full object-cover"></div>
+          <div class="absolute inset-0 bg-gradient-to-t from-db via-db/30 to-transparent"></div>
+          <div class="absolute bottom-0 left-0 right-0 p-5">
+            <h3 class="font-play text-xl font-bold text-white mb-1">Bentota</h3>
+            <p class="text-white/60 text-xs leading-relaxed">Golden beaches, water sports, and the scenic Bentota River.</p>
+          </div>
+        </div>
+        <div class="dest-card rounded-xl overflow-hidden relative group scale-in" style="transition-delay:450ms">
+          <div class="aspect-[4/5] overflow-hidden"><img src="https://picsum.photos/seed/yala-leopard-safari/500/625.jpg" alt="Yala National Park" class="w-full h-full object-cover"></div>
+          <div class="absolute inset-0 bg-gradient-to-t from-db via-db/30 to-transparent"></div>
+          <div class="absolute bottom-0 left-0 right-0 p-5">
+            <h3 class="font-play text-xl font-bold text-white mb-1">Yala National Park</h3>
+            <p class="text-white/60 text-xs leading-relaxed">Sri Lanka's most famous wildlife park, home to leopards and elephants.</p>
+          </div>
+        </div>
+        <div class="dest-card rounded-xl overflow-hidden relative group scale-in" style="transition-delay:500ms">
+          <div class="aspect-[4/5] overflow-hidden"><img src="https://picsum.photos/seed/udawalawe-elephants/500/625.jpg" alt="Udawalawe National Park" class="w-full h-full object-cover"></div>
+          <div class="absolute inset-0 bg-gradient-to-t from-db via-db/30 to-transparent"></div>
+          <div class="absolute bottom-0 left-0 right-0 p-5">
+            <h3 class="font-play text-xl font-bold text-white mb-1">Udawalawe</h3>
+            <p class="text-white/60 text-xs leading-relaxed">Incredible elephant sightings and beautiful savanna landscapes.</p>
+          </div>
+        </div>
+        <div class="dest-card rounded-xl overflow-hidden relative group scale-in" style="transition-delay:550ms">
+          <div class="aspect-[4/5] overflow-hidden"><img src="https://picsum.photos/seed/arugam-bay-surf/500/625.jpg" alt="Arugam Bay" class="w-full h-full object-cover"></div>
+          <div class="absolute inset-0 bg-gradient-to-t from-db via-db/30 to-transparent"></div>
+          <div class="absolute bottom-0 left-0 right-0 p-5">
+            <h3 class="font-play text-xl font-bold text-white mb-1">Arugam Bay</h3>
+            <p class="text-white/60 text-xs leading-relaxed">World-class surfing destination on Sri Lanka's east coast.</p>
+          </div>
+        </div>
+        <div class="dest-card rounded-xl overflow-hidden relative group scale-in" style="transition-delay:600ms">
+          <div class="aspect-[4/5] overflow-hidden"><img src="https://picsum.photos/seed/trincomalee-harbour/500/625.jpg" alt="Trincomalee" class="w-full h-full object-cover"></div>
+          <div class="absolute inset-0 bg-gradient-to-t from-db via-db/30 to-transparent"></div>
+          <div class="absolute bottom-0 left-0 right-0 p-5">
+            <h3 class="font-play text-xl font-bold text-white mb-1">Trincomalee</h3>
+            <p class="text-white/60 text-xs leading-relaxed">Pristine beaches, whale watching, and historic Koneswaram Temple.</p>
+          </div>
+        </div>
+        <div class="dest-card rounded-xl overflow-hidden relative group scale-in" style="transition-delay:650ms">
+          <div class="aspect-[4/5] overflow-hidden"><img src="https://picsum.photos/seed/jaffna-hindu-temple/500/625.jpg" alt="Jaffna" class="w-full h-full object-cover"></div>
+          <div class="absolute inset-0 bg-gradient-to-t from-db via-db/30 to-transparent"></div>
+          <div class="absolute bottom-0 left-0 right-0 p-5">
+            <h3 class="font-play text-xl font-bold text-white mb-1">Jaffna</h3>
+            <p class="text-white/60 text-xs leading-relaxed">Unique Tamil culture, ancient temples, and authentic northern cuisine.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Vehicle Fleet -->
+  <section id="fleet" class="py-20 md:py-28 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16 fade-up">
+        <span class="text-gd font-semibold text-sm tracking-[0.2em] uppercase">Our Vehicles</span>
+        <div class="section-line mx-auto mt-3 mb-6"></div>
+        <h2 class="font-play text-3xl md:text-4xl lg:text-5xl font-bold text-db">Vehicle Fleet</h2>
+        <p class="text-gray-500 mt-4 max-w-2xl mx-auto">Choose from our wide range of well-maintained, comfortable vehicles for any occasion</p>
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
+        <div class="vehicle-card bg-[#f8f6f0] rounded-xl p-6 text-center border border-transparent hover:border-gd/30 scale-in" style="transition-delay:0ms">
+          <div class="w-16 h-16 bg-db rounded-2xl flex items-center justify-center mx-auto mb-4"><i class="fas fa-car text-gd text-2xl"></i></div>
+          <h3 class="font-semibold text-db text-base mb-3">Car</h3>
+          <div class="space-y-2 text-left">
+            <div class="flex items-center gap-2 text-xs text-gray-500"><i class="fas fa-user text-gd text-[10px]"></i> 3 Passengers</div>
+            <div class="flex items-center gap-2 text-xs text-gray-500"><i class="fas fa-snowflake text-gd text-[10px]"></i> Air Conditioning</div>
+            <div class="flex items-center gap-2 text-xs text-gray-500"><i class="fas fa-couch text-gd text-[10px]"></i> Comfortable Seats</div>
+            <div class="flex items-center gap-2 text-xs text-gray-500"><i class="fas fa-suitcase text-gd text-[10px]"></i> 2 Suitcases</div>
+          </div>
+        </div>
+        <div class="vehicle-card bg-[#f8f6f0] rounded-xl p-6 text-center border border-transparent hover:border-gd/30 scale-in" style="transition-delay:60ms">
+          <div class="w-16 h-16 bg-db rounded-2xl flex items-center justify-center mx-auto mb-4"><i class="fas fa-car-side text-gd text-2xl"></i></div>
+          <h3 class="font-semibold text-db text-base mb-3">Sedan</h3>
+          <div class="space-y-2 text-left">
+            <div class="flex items-center gap-2 text-xs text-gray-500"><i class="fas fa-user text-gd text-[10px]"></i> 4 Passengers</div>
+            <div class="flex items-center gap-2 text-xs text-gray-500"><i class="fas fa-snowflake text-gd text-[10px]"></i> Air Conditioning</div>
+            <div class="flex items-center gap-2 text-xs text-gray-500"><i class="fas fa-couch text-gd text-[10px]"></i> Comfortable Seats</div>
+            <div class="flex items-center gap-2 text-xs text-gray-500"><i class="fas fa-suitcase text-gd text-[10px]"></i> 3 Suitcases</div>
+          </div>
+        </div>
+        <div class="vehicle-card bg-[#f8f6f0] rounded-xl p-6 text-center border border-transparent hover:border-gd/30 scale-in" style="transition-delay:120ms">
+          <div class="w-16 h-16 bg-db rounded-2xl flex items-center justify-center mx-auto mb-4"><i class="fas fa-car-rear text-gd text-2xl"></i></div>
+          <h3 class="font-semibold text-db text-base mb-3">Wagon</h3>
+          <div class="space-y-2 text-left">
+            <div class="flex items-center gap-2 text-xs text-gray-500"><i class="fas fa-user text-gd text-[10px]"></i> 4 Passengers</div>
+            <div class="flex items-center gap-2 text-xs text-gray-500"><i class="fas fa-snowflake text-gd text-[10px]"></i> Air Conditioning</div>
+            <div class="flex items-center gap-2 text-xs text-gray-500"><i class="fas fa-couch text-gd text-[10px]"></i> Comfortable Seats</div>
+            <div class="flex items-center gap-2 text-xs text-gray-500"><i class="fas fa-suitcase text-gd text-[10px]"></i> 4 Suitcases</div>
+          </div>
+        </div>
+        <div class="vehicle-card bg-[#f8f6f0] rounded-xl p-6 text-center border border-transparent hover:border-gd/30 scale-in" style="transition-delay:180ms">
+          <div class="w-16 h-16 bg-db rounded-2xl flex items-center justify-center mx-auto mb-4"><i class="fas fa-truck-monster text-gd text-2xl"></i></div>
+          <h3 class="font-semibold text-db text-base mb-3">SUV</h3>
+          <div class="space-y-2 text-left">
+            <div class="flex items-center gap-2 text-xs text-gray-500"><i class="fas fa-user text-gd text-[10px]"></i> 5-6 Passengers</div>
+            <div class="flex items-center gap-2 text-xs text-gray-500"><i class="fas fa-snowflake text-gd text-[10px]"></i> Air Conditioning</div>
+            <div class="flex items-center gap-2 text-xs text-gray-500"><i class="fas fa-couch text-gd text-[10px]"></i> Comfortable Seats</div>
+            <div class="flex items-center gap-2 text-xs text-gray-500"><i class="fas fa-suitcase text-gd text-[10px]"></i> 4 Suitcases</div>
+          </div>
+        </div>
+        <div class="vehicle-card bg-[#f8f6f0] rounded-xl p-6 text-center border border-transparent hover:border-gd/30 scale-in" style="transition-delay:240ms">
+          <div class="w-16 h-16 bg-db rounded-2xl flex items-center justify-center mx-auto mb-4"><i class="fas fa-van-shuttle text-gd text-2xl"></i></div>
+          <h3 class="font-semibold text-db text-base mb-3">Van</h3>
+          <div class="space-y-2 text-left">
+            <div class="flex items-center gap-2 text-xs text-gray-500"><i class="fas fa-user text-gd text-[10px]"></i> 8-10 Passengers</div>
+            <div class="flex items-center gap-2 text-xs text-gray-500"><i class="fas fa-snowflake text-gd text-[10px]"></i> Air Conditioning</div>
+            <div class="flex items-center gap-2 text-xs text-gray-500"><i class="fas fa-couch text-gd text-[10px]"></i> Comfortable Seats</div>
+            <div class="flex items-center gap-2 text-xs text-gray-500"><i class="fas fa-suitcase text-gd text-[10px]"></i> 6 Suitcases</div>
+          </div>
+        </div>
+        <div class="vehicle-card bg-[#f8f6f0] rounded-xl p-6 text-center border border-transparent hover:border-gd/30 scale-in" style="transition-delay:300ms">
+          <div class="w-16 h-16 bg-db rounded-2xl flex items-center justify-center mx-auto mb-4"><i class="fas fa-crown text-gd text-2xl"></i></div>
+          <h3 class="font-semibold text-db text-base mb-3">Luxury Van</h3>
+          <div class="space-y-2 text-left">
+            <div class="flex items-center gap-2 text-xs text-gray-500"><i class="fas fa-user text-gd text-[10px]"></i> 6-8 Passengers</div>
+            <div class="flex items-center gap-2 text-xs text-gray-500"><i class="fas fa-snowflake text-gd text-[10px]"></i> Air Conditioning</div>
+            <div class="flex items-center gap-2 text-xs text-gray-500"><i class="fas fa-couch text-gd text-[10px]"></i> Leather Seats</div>
+            <div class="flex items-center gap-2 text-xs text-gray-500"><i class="fas fa-suitcase text-gd text-[10px]"></i> 5 Suitcases</div>
+          </div>
+        </div>
+        <div class="vehicle-card bg-[#f8f6f0] rounded-xl p-6 text-center border border-transparent hover:border-gd/30 scale-in" style="transition-delay:360ms">
+          <div class="w-16 h-16 bg-db rounded-2xl flex items-center justify-center mx-auto mb-4"><i class="fas fa-bus text-gd text-2xl"></i></div>
+          <h3 class="font-semibold text-db text-base mb-3">Mini Bus</h3>
+          <div class="space-y-2 text-left">
+            <div class="flex items-center gap-2 text-xs text-gray-500"><i class="fas fa-user text-gd text-[10px]"></i> 15-20 Passengers</div>
+            <div class="flex items-center gap-2 text-xs text-gray-500"><i class="fas fa-snowflake text-gd text-[10px]"></i> Air Conditioning</div>
+            <div class="flex items-center gap-2 text-xs text-gray-500"><i class="fas fa-couch text-gd text-[10px]"></i> Comfortable Seats</div>
+            <div class="flex items-center gap-2 text-xs text-gray-500"><i class="fas fa-suitcase text-gd text-[10px]"></i> Large Luggage</div>
+          </div>
+        </div>
+        <div class="vehicle-card bg-[#f8f6f0] rounded-xl p-6 text-center border border-transparent hover:border-gd/30 scale-in" style="transition-delay:420ms">
+          <div class="w-16 h-16 bg-db rounded-2xl flex items-center justify-center mx-auto mb-4"><i class="fas fa-bus-simple text-gd text-2xl"></i></div>
+          <h3 class="font-semibold text-db text-base mb-3">Bus</h3>
+          <div class="space-y-2 text-left">
+            <div class="flex items-center gap-2 text-xs text-gray-500"><i class="fas fa-user text-gd text-[10px]"></i> 30-50 Passengers</div>
+            <div class="flex items-center gap-2 text-xs text-gray-500"><i class="fas fa-snowflake text-gd text-[10px]"></i> Air Conditioning</div>
+            <div class="flex items-center gap-2 text-xs text-gray-500"><i class="fas fa-couch text-gd text-[10px]"></i> Comfortable Seats</div>
+            <div class="flex items-center gap-2 text-xs text-gray-500"><i class="fas fa-suitcase text-gd text-[10px]"></i> Extra Luggage Space</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Us -->
+  <section class="py-20 md:py-28 bg-gradient-to-b from-[#f8f6f0] to-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16 fade-up">
+        <span class="text-gd font-semibold text-sm tracking-[0.2em] uppercase">Our Promise</span>
+        <div class="section-line mx-auto mt-3 mb-6"></div>
+        <h2 class="font-play text-3xl md:text-4xl lg:text-5xl font-bold text-db">Why Choose Us</h2>
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-6 md:gap-8 max-w-5xl mx-auto">
+        <div class="text-center fade-up" style="transition-delay:0ms">
+          <div class="w-16 h-16 bg-gd/10 rounded-2xl flex items-center justify-center mx-auto mb-4"><i class="fas fa-id-card text-gd text-xl"></i></div>
+          <h3 class="font-semibold text-db text-sm mb-1">Professional Drivers</h3>
+          <p class="text-gray-400 text-xs">Experienced & licensed</p>
+        </div>
+        <div class="text-center fade-up" style="transition-delay:50ms">
+          <div class="w-16 h-16 bg-gd/10 rounded-2xl flex items-center justify-center mx-auto mb-4"><i class="fas fa-tag text-gd text-xl"></i></div>
+          <h3 class="font-semibold text-db text-sm mb-1">Affordable Prices</h3>
+          <p class="text-gray-400 text-xs">Best value for money</p>
+        </div>
+        <div class="text-center fade-up" style="transition-delay:100ms">
+          <div class="w-16 h-16 bg-gd/10 rounded-2xl flex items-center justify-center mx-auto mb-4"><i class="fas fa-map-location-dot text-gd text-xl"></i></div>
+          <h3 class="font-semibold text-db text-sm mb-1">Available Anywhere</h3>
+          <p class="text-gray-400 text-xs">All across Sri Lanka</p>
+        </div>
+        <div class="text-center fade-up" style="transition-delay:150ms">
+          <div class="w-16 h-16 bg-gd/10 rounded-2xl flex items-center justify-center mx-auto mb-4"><i class="fas fa-plane-arrival text-gd text-xl"></i></div>
+          <h3 class="font-semibold text-db text-sm mb-1">Airport Pickup</h3>
+          <p class="text-gray-400 text-xs">Meet & greet service</p>
+        </div>
+        <div class="text-center fade-up" style="transition-delay:200ms">
+          <div class="w-16 h-16 bg-gd/10 rounded-2xl flex items-center justify-center mx-auto mb-4"><i class="fas fa-sparkles text-gd text-xl"></i></div>
+          <h3 class="font-semibold text-db text-sm mb-1">Clean Vehicles</h3>
+          <p class="text-gray-400 text-xs">Well-maintained fleet</p>
+        </div>
+        <div class="text-center fade-up" style="transition-delay:250ms">
+          <div class="w-16 h-16 bg-gd/10 rounded-2xl flex items-center justify-center mx-auto mb-4"><i class="fas fa-shield-halved text-gd text-xl"></i></div>
+          <h3 class="font-semibold text-db text-sm mb-1">Safe Travel</h3>
+          <p class="text-gray-400 text-xs">Your safety is priority</p>
+        </div>
+        <div class="text-center fade-up" style="transition-delay:300ms">
+          <div class="w-16 h-16 bg-gd/10 rounded-2xl flex items-center justify-center mx-auto mb-4"><i class="fas fa-headset text-gd text-xl"></i></div>
+          <h3 class="font-semibold text-db text-sm mb-1">24/7 Support</h3>
+          <p class="text-gray-400 text-xs">Always here for you</p>
+        </div>
+        <div class="text-center fade-up" style="transition-delay:350ms">
+          <div class="w-16 h-16 bg-gd/10 rounded-2xl flex items-center justify-center mx-auto mb-4"><i class="fas fa-face-smile text-gd text-xl"></i></div>
+          <h3 class="font-semibold text-db text-sm mb-1">Friendly Service</h3>
+          <p class="text-gray-400 text-xs">Warm Sri Lankan hospitality</p>
+        </div>
+        <div class="text-center fade-up" style="transition-delay:400ms">
+          <div class="w-16 h-16 bg-gd/10 rounded-2xl flex items-center justify-center mx-auto mb-4"><i class="fas fa-sliders text-gd text-xl"></i></div>
+          <h3 class="font-semibold text-db text-sm mb-1">Flexible Packages</h3>
+          <p class="text-gray-400 text-xs">Customized for you</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery Section -->
+  <section id="gallery" class="py-20 md:py-28 bg-db">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16 fade-up">
+        <span class="text-gd font-semibold text-sm tracking-[0.2em] uppercase">Our Moments</span>
+        <div class="section-line mx-auto mt-3 mb-6"></div>
+        <h2 class="font-play text-3xl md:text-4xl lg:text-5xl font-bold text-white">Gallery</h2>
+        <p class="text-white/50 mt-4 max-w-2xl mx-auto">A glimpse of the beautiful experiences we create for our travelers</p>
+      </div>
+      <div class="gallery-grid">
+        <div class="gallery-item h-56 md:h-72 scale-in" style="transition-delay:0ms" onclick="openLightbox(this)">
+          <img src="https://picsum.photos/seed/sl-gallery-temple/600/400.jpg" alt="Sri Lanka temple gallery">
+          <i class="gallery-icon fas fa-expand"></i>
+        </div>
+        <div class="gallery-item tall h-56 md:h-[calc(72px*2+20px)] scale-in" style="transition-delay:50ms" onclick="openLightbox(this)">
+          <img src="https://picsum.photos/seed/sl-gallery-teafield/600/900.jpg" alt="Tea fields gallery">
+          <i class="gallery-icon fas fa-expand"></i>
+        </div>
+        <div class="gallery-item h-56 md:h-72 scale-in" style="transition-delay:100ms" onclick="openLightbox(this)">
+          <img src="https://picsum.photos/seed/sl-gallery-beach2/600/400.jpg" alt="Beach gallery">
+          <i class="gallery-icon fas fa-expand"></i>
+        </div>
+        <div class="gallery-item h-56 md:h-72 scale-in" style="transition-delay:150ms" onclick="openLightbox(this)">
+          <img src="https://picsum.photos/seed/sl-gallery-vehicle/600/400.jpg" alt="Vehicle gallery">
+          <i class="gallery-icon fas fa-expand"></i>
+        </div>
+        <div class="gallery-item h-56 md:h-72 scale-in" style="transition-delay:200ms" onclick="openLightbox(this)">
+          <img src="https://picsum.photos/seed/sl-gallery-elephant/600/400.jpg" alt="Elephant gallery">
+          <i class="gallery-icon fas fa-expand"></i>
+        </div>
+        <div class="gallery-item tall h-56 md:h-[calc(72px*2+20px)] scale-in" style="transition-delay:250ms" onclick="openLightbox(this)">
+          <img src="https://picsum.photos/seed/sl-gallery-waterfall/600/900.jpg" alt="Waterfall gallery">
+          <i class="gallery-icon fas fa-expand"></i>
+        </div>
+        <div class="gallery-item h-56 md:h-72 scale-in" style="transition-delay:300ms" onclick="openLightbox(this)">
+          <img src="https://picsum.photos/seed/sl-gallery-lake/600/400.jpg" alt="Lake gallery">
+          <i class="gallery-icon fas fa-expand"></i>
+        </div>
+        <div class="gallery-item h-56 md:h-72 scale-in" style="transition-delay:350ms" onclick="openLightbox(this)">
+          <img src="https://picsum.photos/seed/sl-gallery-van-road/600/400.jpg" alt="Van on road gallery">
+          <i class="gallery-icon fas fa-expand"></i>
+        </div>
+        <div class="gallery-item h-56 md:h-72 scale-in" style="transition-delay:400ms" onclick="openLightbox(this)">
+          <img src="https://picsum.photos/seed/sl-gallery-sunset-ocean/600/400.jpg" alt="Sunset gallery">
+          <i class="gallery-icon fas fa-expand"></i>
+        </div>
+        <div class="gallery-item h-56 md:h-72 scale-in" style="transition-delay:450ms" onclick="openLightbox(this)">
+          <img src="https://picsum.photos/seed/sl-gallery-buddha-statue/600/400.jpg" alt="Buddha statue gallery">
+          <i class="gallery-icon fas fa-expand"></i>
+        </div>
+        <div class="gallery-item h-56 md:h-72 scale-in" style="transition-delay:500ms" onclick="openLightbox(this)">
+          <img src="https://picsum.photos/seed/sl-gallery-spice-garden/600/400.jpg" alt="Spice garden gallery">
+          <i class="gallery-icon fas fa-expand"></i>
+        </div>
+        <div class="gallery-item h-56 md:h-72 scale-in" style="transition-delay:550ms" onclick="openLightbox(this)">
+          <img src="https://picsum.photos/seed/sl-gallery-coast-road/600/400.jpg" alt="Coastal road gallery">
+          <i class="gallery-icon fas fa-expand"></i>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lightbox -->
+  <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+    <button class="absolute top-6 right-6 text-white text-3xl hover:text-gd transition-colors z-10"><i class="fas fa-times"></i></button>
+    <button id="lbPrev" class="absolute left-4 md:left-8 text-white text-3xl hover:text-gd transition-colors z-10" onclick="event.stopPropagation(); navigateLightbox(-1)"><i class="fas fa-chevron-left"></i></button>
+    <button id="lbNext" class="absolute right-4 md:right-8 text-white text-3xl hover:text-gd transition-colors z-10" onclick="event.stopPropagation(); navigateLightbox(1)"><i class="fas fa-chevron-right"></i></button>
+    <img id="lbImage" src="" alt="Gallery image">
+  </div>
+
+  <!-- Customer Reviews -->
+  <section class="py-20 md:py-28 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16 fade-up">
+        <span class="text-gd font-semibold text-sm tracking-[0.2em] uppercase">Testimonials</span>
+        <div class="section-line mx-auto mt-3 mb-6"></div>
+        <h2 class="font-play text-3xl md:text-4xl lg:text-5xl font-bold text-db">Customer Reviews</h2>
+      </div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="review-card bg-[#f8f6f0] rounded-2xl p-8 border border-gray-100 scale-in" style="transition-delay:0ms">
+          <div class="text-gd text-sm mb-4">⭐⭐⭐⭐⭐</div>
+          <p class="text-gray-600 text-sm leading-relaxed mb-6">"Excellent service. Very friendly driver. The vehicle was spotless clean and the driver knew all the best routes. Highly recommended for anyone visiting Sri Lanka!"</p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 bg-db rounded-full flex items-center justify-center text-gd font-bold text-sm">JM</div>
+            <div>
+              <div class="font-semibold text-db text-sm">James Mitchell</div>
+              <div class="text-gray-400 text-xs">United Kingdom</div>
+            </div>
+          </div>
+        </div>
+        <div class="review-card bg-[#f8f6f0] rounded-2xl p-8 border border-gray-100 scale-in" style="transition-delay:80ms">
+          <div class="text-gd text-sm mb-4">⭐⭐⭐⭐⭐</div>
+          <p class="text-gray-600 text-sm leading-relaxed mb-6">"Our Sri Lanka tour was amazing. Thank you Thinu Cabs & Tours for making our honeymoon so special. The driver was like a personal guide, showing us hidden gems."</p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 bg-db rounded-full flex items-center justify-center text-gd font-bold text-sm">SK</div>
+            <div>
+              <div class="font-semibold text-db text-sm">Sarah Kim</div>
+              <div class="text-gray-400 text-xs">South Korea</div>
+            </div>
+          </div>
+        </div>
+        <div class="review-card bg-[#f8f6f0] rounded-2xl p-8 border border-gray-100 scale-in" style="transition-delay:160ms">
+          <div class="text-gd text-sm mb-4">⭐⭐⭐⭐⭐</div>
+          <p class="text-gray-600 text-sm leading-relaxed mb-6">"Clean vehicle and punctual airport pickup. The driver was waiting for us at the arrival hall with a name board. Very professional service from start to finish."</p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 bg-db rounded-full flex items-center justify-center text-gd font-bold text-sm">MH</div>
+            <div>
+              <div class="font-semibold text-db text-sm">Marco Hoffmann</div>
+              <div class="text-gray-400 text-xs">Germany</div>
+            </div>
+          </div>
+        </div>
+        <div class="review-card bg-[#f8f6f0] rounded-2xl p-8 border border-gray-100 scale-in" style="transition-delay:240ms">
+          <div class="text-gd text-sm mb-4">⭐⭐⭐⭐⭐</div>
+          <p class="text-gray-600 text-sm leading-relaxed mb-6">"We used Thinu Cabs for our entire 10-day Sri Lanka trip. Best decision ever! The prices were very reasonable and the service was top-notch. Will use again!"</p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 bg-db rounded-full flex items-center justify-center text-gd font-bold text-sm">LP</div>
+            <div>
+              <div class="font-semibold text-db text-sm">Laura Perez</div>
+              <div class="text-gray-400 text-xs">Spain</div>
+            </div>
+          </div>
+        </div>
+        <div class="review-card bg-[#f8f6f0] rounded-2xl p-8 border border-gray-100 scale-in" style="transition-delay:320ms">
+          <div class="text-gd text-sm mb-4">⭐⭐⭐⭐⭐</div>
+          <p class="text-gray-600 text-sm leading-relaxed mb-6">"The luxury van was perfect for our family of 6. Plenty of space, cold AC, and the driver was incredibly patient with our kids. Thank you for a wonderful experience!"</p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 bg-db rounded-full flex items-center justify-center text-gd font-bold text-sm">DT</div>
+            <div>
+              <div class="font-semibold text-db text-sm">David Tanaka</div>
+              <div class="text-gray-400 text-xs">Japan</div>
+            </div>
+          </div>
+        </div>
+        <div class="review-card bg-[#f8f6f0] rounded-2xl p-8 border border-gray-100 scale-in" style="transition-delay:400ms">
+          <div class="text-gd text-sm mb-4">⭐⭐⭐⭐⭐</div>
+          <p class="text-gray-600 text-sm leading-relaxed mb-6">"I travel to Sri Lanka frequently for business and Thinu Cabs is my go-to transport. Always on time, always professional. The best taxi service in the country!"</p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 bg-db rounded-full flex items-center justify-center text-gd font-bold text-sm">RA</div>
+            <div>
+              <div class="font-semibold text-db text-sm">Robert Anderson</div>
+              <div class="text-gray-400 text-xs">Australia</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Booking Form Section -->
+  <section id="booking" class="py-20 md:py-28 bg-gradient-to-b from-[#f8f6f0] to-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12 fade-up">
+        <span class="text-gd font-semibold text-sm tracking-[0.2em] uppercase">Reserve Your Ride</span>
+        <div class="section-line mx-auto mt-3 mb-6"></div>
+        <h2 class="font-play text-3xl md:text-4xl lg:text-5xl font-bold text-db">Book Your Journey</h2>
+        <p class="text-gray-500 mt-4">Fill in the details below and we'll get back to you via WhatsApp within minutes</p>
+      </div>
+      <form id="bookingForm" class="bg-white rounded-2xl p-8 md:p-12 shadow-xl border border-gray-100 fade-up">
+        <div class="grid md:grid-cols-2 gap-5 mb-5">
+          <div>
+            <label class="block text-db text-sm font-medium mb-2">Full Name *</label>
+            <input type="text" name="name" required class="form-input w-full px-4 py-3 border border-gray-200 rounded-xl text-sm focus:outline-none" placeholder="Your name">
+          </div>
+          <div>
+            <label class="block text-db text-sm font-medium mb-2">Phone / WhatsApp *</label>
+            <input type="tel" name="phone" required class="form-input w-full px-4 py-3 border border-gray-200 rounded-xl text-sm focus:outline-none" placeholder="+ country code number">
+          </div>
+        </div>
+        <div class="grid md:grid-cols-2 gap-5 mb-5">
+          <div>
+            <label class="block text-db text-sm font-medium mb-2">Email</label>
+            <input type="email" name="email" class="form-input w-full px-4 py-3 border border-gray-200 rounded-xl text-sm focus:outline-none" placeholder="your@email.com">
+          </div>
+          <div>
+            <label class="block text-db text-sm font-medium mb-2">Number of Passengers *</label>
+            <select name="passengers" required class="form-input w-full px-4 py-3 border border-gray-200 rounded-xl text-sm focus:outline-none bg-white">
+              <option value="">Select</option>
+              <option>1-2</option><option>3-4</option><option>5-6</option><option>7-10</option><option>11-15</option><option>16-20</option><option>20+</option>
+            </select>
+          </div>
+        </div>
+        <div class="grid md:grid-cols-2 gap-5 mb-5">
+          <div>
+            <label class="block text-db text-sm font-medium mb-2">Pickup Location *</label>
+            <input type="text" name="pickup" required class="form-input w-full px-4 py-3 border border-gray-200 rounded-xl text-sm focus:outline-none" placeholder="e.g. Bandaranaike Airport">
+          </div>
+          <div>
+            <label class="block text-db text-sm font-medium mb-2">Drop Location *</label>
+            <input type="text" name="drop" required class="form-input w-full px-4 py-3 border border-gray-200 rounded-xl text-sm focus:outline-none" placeholder="e.g. Kandy">
+          </div>
+        </div>
+        <div class="grid md:grid-cols-2 gap-5 mb-5">
+          <div>
+            <label class="block text-db text-sm font-medium mb-2">Date *</label>
+            <input type="date" name="date" required class="form-input w-full px-4 py-3 border border-gray-200 rounded-xl text-sm focus:outline-none">
+          </div>
+          <div>
+            <label class="block text-db text-sm font-medium mb-2">Time</label>
+            <input type="time" name="time" class="form-input w-full px-4 py-3 border border-gray-200 rounded-xl text-sm focus:outline-none">
+          </div>
+        </div>
+        <div class="grid md:grid-cols-2 gap-5 mb-5">
+          <div>
+            <label class="block text-db text-sm font-medium mb-2">Vehicle Type</label>
+            <select name="vehicle" class="form-input w-full px-4 py-3 border border-gray-200 rounded-xl text-sm focus:outline-none bg-white">
+              <option value="">Select (Optional)</option>
+              <option>Car</option><option>Sedan</option><option>Wagon</option><option>SUV</option><option>Van</option><option>Luxury Van</option><option>Mini Bus</option><option>Bus</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-db text-sm font-medium mb-2">Service Type</label>
+            <select name="service" class="form-input w-full px-4 py-3 border border-gray-200 rounded-xl text-sm focus:outline-none bg-white">
+              <option value="">Select (Optional)</option>
+              <option>Airport Pickup</option><option>Airport Drop</option><option>Private Taxi</option><option>Day Tour</option><option>Round Tour</option><option>Hotel Transfer</option><option>Custom Package</option>
+            </select>
+          </div>
+        </div>
+        <div class="mb-6">
+          <label class="block text-db text-sm font-medium mb-2">Additional Notes</label>
+          <textarea name="notes" rows="3" class="form-input w-full px-4 py-3 border border-gray-200 rounded-xl text-sm focus:outline-none resize-none" placeholder="Any special requirements..."></textarea>
+        </div>
+        <button type="submit" class="w-full bg-db hover:bg-db2 text-gd font-semibold py-4 rounded-xl transition-all hover:shadow-lg flex items-center justify-center gap-3 text-base">
+          <i class="fab fa-whatsapp text-xl"></i> Send Booking via WhatsApp
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Google Maps Section -->
+  <section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-10 fade-up">
+        <span class="text-gd font-semibold text-sm tracking-[0.2em] uppercase">Find Us</span>
+        <div class="section-line mx-auto mt-3 mb-6"></div>
+        <h2 class="font-play text-3xl md:text-4xl font-bold text-db">We Serve All of Sri Lanka</h2>
+      </div>
+      <div class="rounded-2xl overflow-hidden shadow-2xl border border-gray-100 fade-up">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d253682.63496658256!2d79.70295985!3d6.92200345!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae253d10f7a7003%3A0x320b2e4d32d3838d!2sColombo%2C%20Sri%20Lanka!5e0!3m2!1sen!2s!4v1700000000000!5m2!1sen!2s" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Thinu Cabs & Tours location - Sri Lanka"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-20 md:py-28 bg-db">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16 fade-up">
+        <span class="text-gd font-semibold text-sm tracking-[0.2em] uppercase">Get in Touch</span>
+        <div class="section-line mx-auto mt-3 mb-6"></div>
+        <h2 class="font-play text-3xl md:text-4xl lg:text-5xl font-bold text-white">Contact Us</h2>
+        <p class="text-white/50 mt-4 max-w-2xl mx-auto">Ready to explore Sri Lanka? Reach out to us anytime — we're here to help plan your perfect trip.</p>
+      </div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
+        <a href="https://wa.me/94765262359" target="_blank" class="group bg-db3/50 hover:bg-db3 border border-white/10 hover:border-gd/30 rounded-2xl p-6 text-center transition-all scale-in" style="transition-delay:0ms">
+          <div class="w-14 h-14 bg-gd/10 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:bg-gd/20 transition-colors"><i class="fab fa-whatsapp text-gd text-2xl"></i></div>
+          <h3 class="font-semibold text-white text-sm mb-1">WhatsApp</h3>
+          <p class="text-white/50 text-xs">+94 765 262 359</p>
+        </a>
+        <a href="tel:+94765262359" class="group bg-db3/50 hover:bg-db3 border border-white/10 hover:border-gd/30 rounded-2xl p-6 text-center transition-all scale-in" style="transition-delay:80ms">
+          <div class="w-14 h-14 bg-gd/10 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:bg-gd/20 transition-colors"><i class="fas fa-phone text-gd text-2xl"></i></div>
+          <h3 class="font-semibold text-white text-sm mb-1">Phone</h3>
+          <p class="text-white/50 text-xs">+94 765 262 359</p>
+        </a>
+        <a href="mailto:info@thinucabs.com" class="group bg-db3/50 hover:bg-db3 border border-white/10 hover:border-gd/30 rounded-2xl p-6 text-center transition-all scale-in" style="transition-delay:160ms">
+          <div class="w-14 h-14 bg-gd/10 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:bg-gd/20 transition-colors"><i class="fas fa-envelope text-gd text-2xl"></i></div>
+          <h3 class="font-semibold text-white text-sm mb-1">Email</h3>
+          <p class="text-white/50 text-xs">info@thinucabs.com</p>
+        </a>
+        <div class="bg-db3/50 border border-white/10 rounded-2xl p-6 text-center scale-in" style="transition-delay:240ms">
+          <div class="w-14 h-14 bg-gd/10 rounded-xl flex items-center justify-center mx-auto mb-4"><i class="fas fa-map-marker-alt text-gd text-2xl"></i></div>
+          <h3 class="font-semibold text-white text-sm mb-1">Service Area</h3>
+          <p class="text-white/50 text-xs">Anywhere in Sri Lanka</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-[#060e1a] pt-16 pb-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+        <div>
+          <div class="flex items-center gap-3 mb-5">
+            <img src="https://z-cdn-media.chatglm.cn/files/2b9bd311-19b8-4ebc-b642-3baa51db7815.jpg?auth_key=1883238630-0e41a32299094ee787c81da57dceacc8-0-0e85d978e5d3926cd0a991188c0df9df" alt="Thinu Cabs Logo" class="h-12 w-12 rounded-full object-cover border-2 border-gd/30">
+            <div>
+              <span class="font-play text-white text-lg font-bold block leading-tight">Thinu Cabs</span>
+              <span class="text-gdl text-[10px] tracking-[0.2em] uppercase">& Tours</span>
+            </div>
+          </div>
+          <p class="text-white/40 text-sm leading-relaxed mb-5">Your trusted partner for transportation and tours across Sri Lanka. Safe, comfortable, and unforgettable journeys.</p>
+          <div class="flex items-center gap-3">
+            <a href="#" target="_blank" class="w-10 h-10 bg-white/5 hover:bg-gd/20 border border-white/10 hover:border-gd/30 rounded-lg flex items-center justify-center text-white/60 hover:text-gd transition-all"><i class="fab fa-facebook-f text-sm"></i></a>
+            <a href="#" target="_blank" class="w-10 h-10 bg-white/5 hover:bg-gd/20 border border-white/10 hover:border-gd/30 rounded-lg flex items-center justify-center text-white/60 hover:text-gd transition-all"><i class="fab fa-instagram text-sm"></i></a>
+            <a href="https://wa.me/94765262359" target="_blank" class="w-10 h-10 bg-white/5 hover:bg-gd/20 border border-white/10 hover:border-gd/30 rounded-lg flex items-center justify-center text-white/60 hover:text-gd transition-all"><i class="fab fa-whatsapp text-sm"></i></a>
+          </div>
+        </div>
+        <div>
+          <h3 class="text-white font-semibold text-sm mb-5">Quick Links</h3>
+          <ul class="space-y-3">
+            <li><a href="#home" class="text-white/40 hover:text-gd text-sm transition-colors">Home</a></li>
+            <li><a href="#about" class="text-white/40 hover:text-gd text-sm transition-colors">About Us</a></li>
+            <li><a href="#services" class="text-white/40 hover:text-gd text-sm transition-colors">Services</a></li>
+            <li><a href="#destinations" class="text-white/40 hover:text-gd text-sm transition-colors">Tours</a></li>
+            <li><a href="#gallery" class="text-white/40 hover:text-gd text-sm transition-colors">Gallery</a></li>
+            <li><a href="#contact" class="text-white/40 hover:text-gd text-sm transition-colors">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-white font-semibold text-sm mb-5">Our Services</h3>
+          <ul class="space-y-3">
+            <li><span class="text-white/40 text-sm">Airport Transfers</span></li>
+            <li><span class="text-white/40 text-sm">Private Taxi Service</span></li>
+            <li><span class="text-white/40 text-sm">Round Tours</span></li>
+            <li><span class="text-white/40 text-sm">Day Excursions</span></li>
+            <li><span class="text-white/40 text-sm">Luxury Vehicle Hire</span></li>
+            <li><span class="text-white/40 text-sm">Custom Tour Packages</span></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-white font-semibold text-sm mb-5">Contact Info</h3>
+          <ul class="space-y-4">
+            <li class="flex items-start gap-3">
+              <i class="fas fa-phone text-gd text-xs mt-1"></i>
+              <span class="text-white/40 text-sm">+94 765 262 359</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <i class="fab fa-whatsapp text-gd text-xs mt-1"></i>
+              <span class="text-white/40 text-sm">+94 765 262 359</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <i class="fas fa-envelope text-gd text-xs mt-1"></i>
+              <span class="text-white/40 text-sm">info@thinucabs.com</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <i class="fas fa-globe text-gd text-xs mt-1"></i>
+              <span class="text-white/40 text-sm">www.thinucabs.com</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <i class="fas fa-map-marker-alt text-gd text-xs mt-1"></i>
+              <span class="text-white/40 text-sm">Anywhere in Sri Lanka</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+        <p class="text-white/30 text-xs">&copy; 2025 Thinu Cabs & Tours. All rights reserved.</p>
+        <p class="text-white/20 text-xs">Professional Transport & Tourism Services in Sri Lanka</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating WhatsApp Button -->
+  <a href="https://wa.me/94765262359" target="_blank" class="float-wa" aria-label="Chat on WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <!-- Floating Call Button -->
+  <a href="tel:+94765262359" class="float-call" aria-label="Call Now">
+    <i class="fas fa-phone"></i>
+  </a>
+
+  <!-- Back to Top Button -->
+  <button id="backTop" class="back-top" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+    <i class="fas fa-chevron-up"></i>
+  </button>
+
+  <script>
+    // ========== HERO SLIDER ==========
+    const slides = document.querySelectorAll('.hero-slide');
+    const dots = document.querySelectorAll('.slider-dot');
+    let currentSlide = 0;
+    let slideInterval;
+
+    function goToSlide(n) {
+      slides[currentSlide].classList.remove('active');
+      dots[currentSlide].classList.remove('active');
+      currentSlide = (n + slides.length) % slides.length;
+      slides[currentSlide].classList.add('active');
+      dots[currentSlide].classList.add('active');
+    }
+
+    function startSlider() {
+      slideInterval = setInterval(() => goToSlide(currentSlide + 1), 5000);
+    }
+
+    dots.forEach(dot => {
+      dot.addEventListener('click', () => {
+        clearInterval(slideInterval);
+        goToSlide(parseInt(dot.dataset.slide));
+        startSlider();
+      });
+    });
+
+    startSlider();
+
+    // ========== STICKY NAV ==========
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 80) {
+        navbar.classList.add('nav-scrolled');
+      } else {
+        navbar.classList.remove('nav-scrolled');
+      }
+    });
+
+    // ========== MOBILE MENU ==========
+    const menuBtn = document.getElementById('menuBtn');
+    const closeMenuBtn = document.getElementById('closeMenu');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const menuOverlay = document.getElementById('menuOverlay');
+    const mobileLinks = document.querySelectorAll('.mobile-link');
+
+    function openMenu() {
+      mobileMenu.classList.add('open');
+      menuOverlay.classList.remove('hidden');
+      menuBtn.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeMenu() {
+      mobileMenu.classList.remove('open');
+      menuOverlay.classList.add('hidden');
+      menuBtn.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    menuBtn.addEventListener('click', openMenu);
+    closeMenuBtn.addEventListener('click', closeMenu);
+    menuOverlay.addEventListener('click', closeMenu);
+    mobileLinks.forEach(link => link.addEventListener('click', closeMenu));
+
+    // ========== SCROLL ANIMATIONS ==========
+    const animElements = document.querySelectorAll('.fade-up, .fade-left, .fade-right, .scale-in');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const delay = entry.target.style.transitionDelay || '0ms';
+          entry.target.style.transitionDelay = delay;
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+    animElements.forEach(el => observer.observe(el));
+
+    // ========== BACK TO TOP ==========
+    const backTop = document.getElementById('backTop');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 600) {
+        backTop.classList.add('show');
+      } else {
+        backTop.classList.remove('show');
+      }
+    });
+
+    // ========== GALLERY LIGHTBOX ==========
+    const lightbox = document.getElementById('lightbox');
+    const lbImage = document.getElementById('lbImage');
+    let galleryImages = [];
+    let currentLbIndex = 0;
+
+    document.querySelectorAll('.gallery-item').forEach((item, i) => {
+      const img = item.querySelector('img');
+      galleryImages.push(img.src);
+    });
+
+    function openLightbox(el) {
+      const img = el.querySelector('img');
+      currentLbIndex = galleryImages.indexOf(img.src);
+      lbImage.src = img.src;
+      lightbox.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      lightbox.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    function navigateLightbox(dir) {
+      currentLbIndex = (currentLbIndex + dir + galleryImages.length) % galleryImages.length;
+      lbImage.src = galleryImages[currentLbIndex];
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (!lightbox.classList.contains('open')) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowLeft') navigateLightbox(-1);
+      if (e.key === 'ArrowRight') navigateLightbox(1);
+    });
+
+    // ========== BOOKING FORM -> WHATSAPP ==========
+    document.getElementById('bookingForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const form = e.target;
+      const data = new FormData(form);
+      let msg = '🚖 *New Booking Request - Thinu Cabs & Tours*\n\n';
+      msg += '📋 *Name:* ' + (data.get('name') || '') + '\n';
+      msg += '📱 *Phone:* ' + (data.get('phone') || '') + '\n';
+      msg += '📧 *Email:* ' + (data.get('email') || 'N/A') + '\n';
+      msg += '👥 *Passengers:* ' + (data.get('passengers') || '') + '\n';
+      msg += '📍 *Pickup:* ' + (data.get('pickup') || '') + '\n';
+      msg += '🏁 *Drop:* ' + (data.get('drop') || '') + '\n';
+      msg += '📅 *Date:* ' + (data.get('date') || '') + '\n';
+      msg += '⏰ *Time:* ' + (data.get('time') || 'N/A') + '\n';
+      msg += '🚗 *Vehicle:* ' + (data.get('vehicle') || 'Any') + '\n';
+      msg += '🏷️ *Service:* ' + (data.get('service') || 'N/A') + '\n';
+      msg += '📝 *Notes:* ' + (data.get('notes') || 'None') + '\n\n';
+      msg += '_Sent from Thinu Cabs website_';
+
+      const url = 'https://wa.me/94765262359?text=' + encodeURIComponent(msg);
+      window.open(url, '_blank');
+    });
+
+    // ========== SMOOTH SCROLL FOR NAV LINKS ==========
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          const offset = 80;
+          const top = target.getBoundingClientRect().top + window.scrollY - offset;
+          window.scrollTo({ top, behavior: 'smooth' });
+        }
+      });
+    });
+
+    // ========== SET MIN DATE FOR BOOKING ==========
+    const dateInput = document.querySelector('input[type="date"]');
+    if (dateInput) {
+      const today = new Date().toISOString().split('T')[0];
+      dateInput.setAttribute('min', today);
+    }
+  </script>
+</body>
+</html>
